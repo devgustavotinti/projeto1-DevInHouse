@@ -1,0 +1,129 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background: #fcfcfc;
+  height: 100vh;
+}
+
+header {
+  text-align: center;
+  padding: 50px;
+}
+
+header h1 {
+  font-size: 2rem;
+}
+
+main {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+main form {
+  text-align: center;
+}
+
+main form label:first-child {
+  display: none;
+}
+
+main form #inputTarefa {
+  height: 2.5rem;
+  border: 2px solid;
+  padding: 10px;
+  width: 300px;
+}
+
+main form #inputTarefa.inativo {
+  border: 1px solid;
+  border-color: red;
+}
+
+main form .buttonAddItem {
+  height: 2.5rem;
+  width: 150px;
+  padding: 10px;
+  background: #14aa06;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fcfcfc;
+  letter-spacing: 0.08rem;
+  cursor: pointer;
+}
+
+main form .buttonAddItem:hover {
+  background: #0d9224;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+main .msgErro {
+  margin-top: 20px;
+}
+
+main .msgErro span {
+  color: #ff0000;
+  font-weight: bold;
+}
+
+main .lista {
+  width: 600px;
+  margin: 40px auto 20px auto;
+}
+
+main .lista div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  -webkit-box-shadow: 2px 3px 4px 2px #a0a0a0;
+          box-shadow: 2px 3px 4px 2px #a0a0a0;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+
+main .lista div:hover {
+  background: #dfdfdf;
+}
+
+main .lista div li {
+  max-width: 400px;
+  text-align: center;
+}
+
+main .lista div li.riscar {
+  text-decoration: line-through;
+}
+
+main .lista .novoItem {
+  cursor: pointer;
+  height: 20px;
+}
+
+main .lista .removeItem {
+  height: 25px;
+  background: #ff0000;
+  padding: 2px 6px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=style.css.map */
