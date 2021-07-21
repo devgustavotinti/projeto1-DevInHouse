@@ -14,4 +14,4 @@ Esse projeto possui as seguintes funcionalidades:
 
 - [x] Salvar automaticamente a lista no LocalStorage.
 
-- [] Recarregar automaticamente a lista do LocalStorage.
+- [ ] Recarregar automaticamente a lista do LocalStorage.

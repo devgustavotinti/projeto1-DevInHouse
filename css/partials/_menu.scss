@@ -71,6 +71,10 @@ main {
       &:hover {
         background: #dfdfdf;
       }
+
+      input[type='checkbox']:checked + li{
+        text-decoration: line-through;
+      }
       
       li {
         max-width: 400px;
