@@ -14,9 +14,10 @@ form.addEventListener('submit', adicionarItem)
   
 
 // Pegará o valor da variavel Input Tarefa e acionará esta função
-function adicionarNaLista(itemTarefa) {
+function adicionarNaLista(itemTarefa, status, indice) {
   let itemAdicionado = document.createElement('div')
-  itemAdicionado.className = 'containerItem'
+  itemAdicionado.classList.add('containerItem')
+  
 
 
   // se verdadeiro, rodará o código a seguir
@@ -26,12 +27,11 @@ function adicionarNaLista(itemTarefa) {
 
 
     // criará os elementos a seguir dentro da div criado, pela variavel itemAdicionado
-    let itensAdd = itemAdicionado.innerHTML = `
-      <input type="checkbox" onClick="checar(event)" class="novoItem" value="${itemTarefa}"> 
-      <li id"item-$"> ${itemTarefa} </li>
-      <input type="button" value="X" onClick="removeItens(event)" class="removeItem">
-      `
-
+    itemAdicionado.innerHTML = `
+        <input type="checkbox" ${status} data-indice=${indice} class="novoItem"> 
+        <li> ${itemTarefa} </li>
+        <input type="button" data-indice=${indice} value="X" onClick="removeItens(event)" class="removeItem">
+        `
 
     lista.appendChild(itemAdicionado) // adicionará os itens abaixo da ul com a classe lista
 
@@ -53,20 +53,17 @@ function adicionarNaLista(itemTarefa) {
 }
 
 
-// irá checar se o input checkbox foi clicado. Se sim, irá riscar o próximo item, que será o valor digitado pelo usuário
-function checar(event) {
-  let target = event.target
-  target.nextElementSibling.classList.toggle('riscar')
-}
-
 
 // quando clicar no input button value X, removerá a div criada
 function removeItens(event) {
   var item = document.querySelector('.containerItem')
   item.parentNode.removeChild(event.target.parentNode)
 
-  
+  // localStorage.clear()
+
   // console.log(event.target.previousElementSibling.innerText)
+
+  // itensLista.remove(event.target.previousElementSibling.innerText)
 
 }
 
