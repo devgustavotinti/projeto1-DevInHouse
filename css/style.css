@@ -106,13 +106,13 @@ main .lista div:hover {
   background: #dfdfdf;
 }
 
+main .lista div input[type='checkbox']:checked + li {
+  text-decoration: line-through;
+}
+
 main .lista div li {
   max-width: 400px;
   text-align: center;
-}
-
-main .lista div li.riscar {
-  text-decoration: line-through;
 }
 
 main .lista .novoItem {
