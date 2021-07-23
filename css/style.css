@@ -115,10 +115,6 @@ main .lista div li {
   text-align: center;
 }
 
-main .lista div li.riscar {
-  text-decoration: line-through;
-}
-
 main .lista .novoItem {
   cursor: pointer;
   height: 20px;
