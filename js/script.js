@@ -4,6 +4,17 @@ const lista = document.querySelector(".lista");
 const msgErro = document.querySelector(".msgErro");
 let itensLista = [];
 
+let itemTarefa = inputTarefa.value
+
+// let li = document.createElement('li')
+
+// let inputCheck = document.createElement('input')
+// inputCheck.setAttribute('type', 'checkbox')
+
+// let inputButton = document.createElement('input')
+// inputButton.setAttribute('type', 'button')
+// inputButton.setAttribute('value', 'X')
+
 // Aciona a função quando o usuário dar submit, prevendo o evento padrão do form
 function adicionarItem(event) {
   event.preventDefault();
@@ -13,7 +24,7 @@ form.addEventListener("submit", adicionarItem);
 
 
 // Pegará o valor da variavel Input Tarefa e acionará esta função
-function adicionarNaLista(itemTarefa) {
+function adicionarNaLista(itemTarefa, indice) {
   let itemAdicionado = document.createElement('div')
   itemAdicionado.classList.add('containerItem')
   
@@ -23,9 +34,16 @@ function adicionarNaLista(itemTarefa) {
     msgErro.innerText = null;
     inputTarefa.classList.remove("inativo");
 
+    // li.appendChild(document.createTextNode(itemTarefa)) 
+
+
+    // itemAdicionado.appendChild(inputCheck)
+    // itemAdicionado.appendChild(li)
+    // itemAdicionado.appendChild(inputButton)
+    
     // criará os elementos a seguir dentro da div criado, pela variavel itemAdicionado
     itemAdicionado.innerHTML = `
-        <input type="checkbox" class="novoItem"> 
+        <input type="checkbox" class="novoItem" data-indice=${indice}> 
         <li class="li"> ${itemTarefa} </li>
         <input type="button" value="X" onClick="removeItens(event)" class="removeItem">
         `
@@ -44,8 +62,8 @@ function adicionarNaLista(itemTarefa) {
     inputTarefa.classList.add("inativo");
     msgErro.innerHTML = `<span>Atenção!</span> Você deixou o espaço em branco, digite uma nova tarefa.`;
   }
+  return itemTarefa
 }
-
 
 
 // quando clicar no input button value X, removerá a div criada
@@ -53,9 +71,22 @@ function removeItens(event) {
   var item = document.querySelector(".containerItem");
   item.parentNode.removeChild(event.target.parentNode);
 
-  let li = document.querySelector('.li')
-  console.log(li)
-  console.log(itensLista)
+  var descobrindoText = event.target.previousElementSibling.innerText 
+  // itensLista.indexOf(descobrindoPosicao)
+  // itensLista.splice(descobrindoPosicao, 1)
+  // localStorage.setItem("listaProjeto", JSON.stringify(itensLista))
+  
+  // var procura = itensLista.indexOf(descobrindoPosicao)
+  // var remove = itensLista.splice(descobrindoPosicao, 1)
+
+  console.log(descobrindoText)
+  // console.log(procura)
+  // console.log(remove)
+
+  // console.log('indexOf:', itensLista.indexOf(descobrindoPosicao))
+  // console.log('Splice:', itensLista.splice(descobrindoPosicao, 1))
+  // console.log('Splice:', itensLista.pop(descobrindoPosicao, 1))
+  // console.log('itensLista:', itensLista)
 
   // localStorage.setItem("listaProjeto", JSON.stringify(itensLista))
 
