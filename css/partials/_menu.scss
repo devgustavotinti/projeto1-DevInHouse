@@ -22,7 +22,7 @@ main {
       }
     }
 
-    .buttonAddItem {
+    .buttonAddItem, .limparTarefa {
       height: 2.5rem;
       width: 150px;
       padding: 10px;
@@ -39,6 +39,14 @@ main {
       &:hover {
       background: rgb(13, 146, 36);
       transition: 0.3s ease;
+      }
+    }
+
+    .limparTarefa {
+      background: #b90303;
+
+      &:hover {
+        background: #ff0000;
       }
     }
   }

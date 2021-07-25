@@ -2,7 +2,9 @@ const form = document.querySelector("#form");
 const inputTarefa = document.querySelector("#inputTarefa");
 const lista = document.querySelector(".lista");
 const msgErro = document.querySelector(".msgErro");
+const limparTarefa = document.querySelector('.limparTarefa')
 let itensLista = [];
+
 
 // Aciona a função quando o usuário dar submit, prevendo o evento padrão do form
 function adicionarItem(event) {
@@ -11,23 +13,24 @@ function adicionarItem(event) {
 }
 form.addEventListener("submit", adicionarItem);
 
+
 // Pegará o valor da variavel Input Tarefa e acionará esta função
-function adicionarNaLista(itemTarefa, status, indice) {
+function adicionarNaLista(itemTarefa) {
   let itemAdicionado = document.createElement('div')
   itemAdicionado.classList.add('containerItem')
   
-
 
   // se verdadeiro, rodará o código a seguir
   if (itemTarefa) {
     msgErro.innerText = null;
     inputTarefa.classList.remove("inativo");
 
+    
     // criará os elementos a seguir dentro da div criado, pela variavel itemAdicionado
     itemAdicionado.innerHTML = `
-        <input type="checkbox" ${status} data-indice=${indice} class="novoItem"> 
-        <li> ${itemTarefa} </li>
-        <input type="button" data-indice=${indice} value="X" onClick="removeItens(event)" class="removeItem">
+        <input type="checkbox" class="novoItem"> 
+        <li class="li"> ${itemTarefa} </li>
+        <input type="button" value="X" onClick="removeItens(event)" class="removeItem">
         `
 
 
@@ -42,10 +45,9 @@ function adicionarNaLista(itemTarefa, status, indice) {
   } // se for falso, aparecerá uma mensagem de alerta e bordas vermelhas no input
   else {
     inputTarefa.classList.add("inativo");
-    msgErro.innerHTML = `<span>Atenção!</span>    Você deixou o espaço em branco, digite uma nova tarefa.`;
+    msgErro.innerHTML = `<span>Atenção!</span> Você deixou o espaço em branco, digite uma nova tarefa.`;
   }
 }
-
 
 
 // quando clicar no input button value X, removerá a div criada
@@ -53,24 +55,26 @@ function removeItens(event) {
   var item = document.querySelector(".containerItem");
   item.parentNode.removeChild(event.target.parentNode);
 
-  localStorage.removeItem('listaProjeto', item)
+  // Pega o texto da li
+  var descobrindoText = event.target.previousElementSibling.innerText
 
-  // localStorage.clear()
+  // Descobri a posição em que o texto está na Array
+  // itensLista.indexOf(descobrindoPosicao)
 
-  // localStorage.clear()
+  // Exclui o elemento encontrado 
+  // itensLista.splice(descobrindoPosicao, 1)
 
-  // console.log(event.target.previousElementSibling.innerText)
-
-  // itensLista.remove(event.target.previousElementSibling.innerText)
-
+  // Atualiza a array
+  // localStorage.setItem("listaProjeto", JSON.stringify(itensLista))
 }
 
-// salvando os itens na key listaProjeto
+
+// Salvando os itens na key listaProjeto
 function salveLocalStorage() {
-  localStorage.setItem("listaProjeto", JSON.stringify(itensLista));
+  localStorage.setItem("listaProjeto", JSON.stringify(itensLista)); // converte os valores para um formato de String
 }
 
-// carregará a página com os itens salvos no Local Storage com a key listaProjeto
+// Carregará a página com os itens salvos no Local Storage com a key listaProjeto
 function carregarListaLocalStorage() {
   var listaLocalStorage = localStorage.getItem("listaProjeto");
 
@@ -83,3 +87,10 @@ function carregarListaLocalStorage() {
   }
 }
 carregarListaLocalStorage();
+
+// Remove todos os elementos da lista no localStorage e atualiza a página
+function limparTarefas() {
+  window.location.reload()
+  localStorage.clear()
+}
+limparTarefa.addEventListener('click', limparTarefas)
