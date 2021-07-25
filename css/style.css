@@ -54,7 +54,7 @@ main form #inputTarefa.inativo {
   border-color: red;
 }
 
-main form .buttonAddItem {
+main form .buttonAddItem, main form .limparTarefa {
   height: 2.5rem;
   width: 150px;
   padding: 10px;
@@ -66,10 +66,18 @@ main form .buttonAddItem {
   cursor: pointer;
 }
 
-main form .buttonAddItem:hover {
+main form .buttonAddItem:hover, main form .limparTarefa:hover {
   background: #0d9224;
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
+}
+
+main form .limparTarefa {
+  background: #b90303;
+}
+
+main form .limparTarefa:hover {
+  background: #ff0000;
 }
 
 main .msgErro {
