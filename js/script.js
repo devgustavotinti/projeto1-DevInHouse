@@ -56,9 +56,9 @@ function removeItens(event) {
   item.parentNode.removeChild(event.target.parentNode);
 
   // Pega o texto da li
-  var descobrindoText = event.target.previousElementSibling.innerText
+  // var descobrindoText = event.target.previousElementSibling.innerText
 
-  // Descobri a posição em que o texto está na Array
+  // Descobri a posição em que o texto está na Array. ERRO: Não está encontrando a posição correta, está devolvendo -1
   // itensLista.indexOf(descobrindoPosicao)
 
   // Exclui o elemento encontrado 
